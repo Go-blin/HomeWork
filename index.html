@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
 <body>
+
     <div class="reg_form">
-        <div class="regist">
+        <form id="register" class="regist" action="#">
             <h1>Регистрация</h1>
             <div>
                 <label for="name">Имя</label>
@@ -23,10 +26,10 @@
             </div>
             <div>
                 <label for="email">E-mail</label>
-                <input id="email" type="email" name="email" required placeholder="example@mail.com">
+                <input id="email" name="email" required placeholder="example@mail.com">
             </div>
-<button class="confirm_button" id="confirm">Подтвердить</button>
-        </div>
+            <button class="confirm_button" id="confirm">Подтвердить</button>
+    </form>
     </div>
     <script src="js/main.js"></script>
 </body>

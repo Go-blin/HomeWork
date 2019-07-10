@@ -1,38 +1,41 @@
-var confirmButton = document.getElementById("confirm");
-confirmButton.addEventListener('click', saySmth);
+$(document).ready(function () {
+    $('#register').submit(function (e) {
+        e.preventDefault();
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var email = $('#email').val();
 
-function saySmth() {
+        $(".error").remove();
+        var escapeFlag = false;
 
-var firstName = document.getElementById("firstName").value;
-if (firstName.length < 5) {
-    alert('Имя слишком короткое');
-document.getElementById('firstName').value = ''; 
-} 
+        if (firstName.length < 5) {
+            $('#firstName').after('<span class="error">First name is too short</span>');
+            escapeFlag = true;
+           
+        }
+        if (lastName.length < 5) {
+            $('#lastName').after('<span class="error">Last name is too short</span>');
+            escapeFlag = true;
+        }
+        if (email.length < 5) {
+            $('#email').after('<span class="error">Email is too short</span>');
+            escapeFlag = true;
+        }
+        if (escapeFlag) { return; }
 
-  var lastName = document.getElementById('lastName').value;
-  if (lastName.length < 5) {
-    alert('Фамилия слишком короткая');
-document.getElementById('lastName').value = ''; 
-} 
+        var user = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email
+        };
 
-var email = document.getElementById('email').value;
-if (email.length < 5) {
-    alert('email слишком короткий');
-document.getElementById('email').value = ''; 
-}
+        console.log(user);
+        alert('Success');
 
-if (firstName.length > 5 && lastName.length > 5 && email.length > 5) {
-alert('Успешно')
-document.getElementById('firstName').value = ''; 
-document.getElementById('lastName').value = ''; 
-document.getElementById('email').value = '';   
+        $('#register').trigger('reset');
+    });
 
-var user = {
-    FirstName: firstName,
-    LastName: lastName,
-    Email: email
-};
+   
 
-console.log(user);
-}
-}
+})
+  
